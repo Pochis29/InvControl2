@@ -1,37 +1,73 @@
-# Invcontrol - Proyecto Académico
+# Weather Dashboard
 
-Sistema de control de inventario desarrollado como proyecto académico.
+A professional weather dashboard application that fetches real-time weather data from the OpenWeatherMap API.
 
-## Estructura del Proyecto
+## Features
 
-```
-├── app/              # Lógica de aplicación
-├── config/           # Configuraciones
-├── database/         # Base de datos
-├── index.php         # Punto de entrada
-├── docker-compose.yml
-└── Dockerfile
-```
+✨ **Current Weather Data**
+- Real-time temperature, humidity, pressure
+- Wind speed and direction
+- Weather description and icons
+- Sunrise and sunset times
 
-## Requisitos
+🔍 **5-Day Forecast**
+- Hourly and daily forecast data
+- Weather trends and predictions
 
-- PHP 8.0+
+🔎 **City Search**
+- Search for cities worldwide
+- Find weather conditions in different locations
+
+⚡ **Performance Features**
+- Smart caching system (1-hour TTL)
+- Fast API responses
+
+## Technology Stack
+
+- **Backend**: PHP 8.2
+- **Server**: Apache
+- **Container**: Docker & Docker Compose
+- **API**: OpenWeatherMap
+- **Caching**: File-based cache system
+
+## Installation
+
+### Prerequisites
+
 - Docker & Docker Compose
-- Composer
+- OpenWeatherMap API Key
 
-## Instalación
+### Quick Start
 
-```bash
-# Configurar variables de entorno
-cp .env.example .env
+1. Clone the repository
+2. Copy .env.example to .env
+3. Add your OpenWeatherMap API key
+4. Run: docker-compose up -d
+5. Access: http://localhost:8000
 
-# Levantar contenedores
-docker-compose up -d
+## API Endpoints
 
-# Instalar dependencias
-composer install
+- `GET /?action=current&city=London` - Get current weather
+- `GET /?action=forecast&city=London` - Get 5-day forecast
+- `GET /?action=search&q=Lond` - Search cities
+
+## Project Structure
+
+```
+├── app/
+│   ├── WeatherController.php
+│   ├── WeatherService.php
+│   └── CacheManager.php
+├── config/
+│   └── config.php
+├── index.php
+└── docker-compose.yml
 ```
 
-## Acceso
+## License
 
-http://localhost:8000
+MIT License
+
+---
+
+**Made with ❤️ by Pochis29**
